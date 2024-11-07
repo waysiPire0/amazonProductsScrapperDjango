@@ -208,6 +208,22 @@ To configure tasks to scrape products for all brands, create a periodic task in 
 
   
 
+To trigger the scraper manually using the management command we created earlier in `create_periodic_tasks`, you can include the following steps in the **Running Scraper Manually** section of the `README.md`:
+
+---
+
+### Running Scraper With Command
+
+To set up the periodic tasks for scraping (if not already configured) or to trigger the scraping process, you can use the custom Django management command I have created:
+
+```bash
+python manage.py create_periodic_tasks
+```
+
+This command sets up the periodic tasks to run four times a day and initiates the scraping process for all brands in the database. Running this command is useful if you need to ensure the periodic tasks are configured or if you want to trigger an immediate scrape without waiting for the next scheduled run.
+
+
+
 ### Running Scraper Manually (Optional)
 
   
