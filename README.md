@@ -57,6 +57,10 @@ This Django project is a web scraping system integrated with Celery to automate 
 
 4. [API Documentation](#api-documentation)
 
+
+
+5. [Assumptions and Design Decisions](#assumptions-and-design-decisions)
+
   
 
 ---
