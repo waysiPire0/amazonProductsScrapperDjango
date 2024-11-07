@@ -286,25 +286,25 @@ The project exposes a REST API to list products by brand with support for filter
 
 # Get all products by brand "ExampleBrand"
 
-GET /products/ExampleBrand/
+GET /scrapper/products/ExampleBrand/
 
   
 
 # Filter products by ASIN
 
-GET /products/ExampleBrand/?asin=B08T5QVX5B
+GET /scrapper/products/ExampleBrand/?asin=B08T5QVX5B
 
   
 
 # Search products by name
 
-GET /products/ExampleBrand/?search=phone
+GET /scrapper/products/ExampleBrand/?search=phone
 
   
 
 # Order products by name
 
-GET /products/ExampleBrand/?ordering=name
+GET /scrapper/products/ExampleBrand/?ordering=name
 
 ```  
 
