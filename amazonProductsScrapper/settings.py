@@ -11,16 +11,21 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv, dotenv_values
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+config = dotenv_values(".env")  # config = {"USER": "foo", "EMAIL": "foo@example.org"}
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-k#ngo6rq5h4hq7+0it8xl6bqrpjg0obxj2qial^q0sn)i-e)q+'
+SECRET_KEY = config.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'django_celery_beat',
+    'django_filters',
+    'Scrapper'
 ]
 
 MIDDLEWARE = [
@@ -79,6 +88,10 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# CELERY SETTINGS
+CELERY_BROKER_URL = config.get('CELERY_BROKER_URL')
+CELERY_RESULT_BACKEND = config.get('CELERY_RESULT_BACKEND')
 
 
 # Password validation
